@@ -1,23 +1,11 @@
 package routes
 
 import (
-	"golang_blog/pkg/html"
-	"net/http"
-
 	"github.com/gin-gonic/gin"
+	homeCtrl "golang_blog/internal/modules/home/controllers"
 )
 
 func Routes(r *gin.Engine) {
-	r.GET("/", func(c *gin.Context) {
-		html.Render(c, http.StatusOK, "modules/home/html/home", gin.H{
-			"title": "Home page",
-		})
-
-	})
-
-	r.GET("/about", func(c *gin.Context) {
-		html.Render(c, http.StatusOK, "modules/home/html/about", gin.H{
-			"title": "About page",
-		})
-	})
+	homeController := homeCtrl.NEw()
+	r.GET("/", homeController.Index)
 }
