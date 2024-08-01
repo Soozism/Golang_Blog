@@ -2,6 +2,7 @@ package bootstrap
 
 import (
 	"golang_blog/pkg/config"
+	"golang_blog/pkg/database"
 	"golang_blog/pkg/html"
 	"golang_blog/pkg/routing"
 	"golang_blog/pkg/static"
@@ -9,6 +10,8 @@ import (
 
 func Serve() {
 	config.Set()
+
+	database.Connect()
 
 	routing.Init()
 

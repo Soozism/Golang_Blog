@@ -1,10 +1,8 @@
 package config
 
 import (
-	"log"
-	"os"
-
 	"github.com/spf13/viper"
+	"log"
 )
 
 func Set() {
@@ -20,7 +18,6 @@ func Set() {
 			// Config file was found but another error was produced
 			log.Fatal("Error reading the config :", err)
 		}
-		os.Exit(1)
 	}
 
 	err := viper.Unmarshal(&cfg)
